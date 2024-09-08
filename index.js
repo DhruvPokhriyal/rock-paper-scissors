@@ -1,5 +1,10 @@
 let CHOICES = ["rock", "paper", "scissors"];
 
+// Initializing player scores variable with a value 0
+
+let humanScore = 0;
+let computerScore = 0;
+
 // Create a global array that contains all the choices of rock, paper and scissors game
 // Create a get computer choice function 
 // Inside get computer choice function generate a random number from 0 to 2 (both inclusive)
@@ -25,8 +30,30 @@ function getHumanChoice(){
 }
 
 
-// Initializing player scores variable with a value 0
+// Create a function playRound
+// It takes two parameter humanChoice and computerChoice 
+// It uses conditional to checks who wins and update the scores accordingly
 
-let humanScore = 0;
-let computerScore = 0;
-
+function playRound(humanChoice, computerChoice){
+    humanWin = false;
+    if ( humanChoice == "rock" && computerChoice == "scissors"){
+        console.log("You Win, Rock beats scissors.");
+        humanWin = true;
+    } else if (humanChoice == "scissors" && computerChoice == "rock"){
+        console.log("You Lose, Rock beats scissors");
+    } else if (humanChoice == computerChoice){
+        console.log("It's a draw");
+        return ;
+    } else if (CHOICES.indexOf(humanChoice) < CHOICES.indexOf(computerChoice)){
+        console.log(`You Lose, ${computerChoice} beats ${humanChoice}`);
+    } else {
+        console.log(`You Win, ${humanChoice} beats ${computerChoice}`);
+        humanWin = true;
+    }
+    if (humanWin){
+        humanScore++;
+    } else {
+        computerScore++;
+    }
+    return;
+}
