@@ -16,7 +16,7 @@ function getComputerChoice(){
 // If it's an invalid input show an alert to user containing message that it's invalid input
 
 function getHumanChoice(){
-    let humChoice = prompt("Enter your choice(rock/paper/scissors): ");
+    let humChoice = prompt("Enter your choice(rock/paper/scissors): ").toLowerCase();
     if (humChoice == "rock" || humChoice == "paper" || humChoice == "scissors"){
         return humChoice;
     } else {
@@ -29,3 +29,4 @@ function getHumanChoice(){
 
 let humanScore = 0;
 let computerScore = 0;
+
