@@ -1,11 +1,12 @@
+let CHOICES = ["rock", "paper", "scissors"];
+
 // Create a global array that contains all the choices of rock, paper and scissors game
 // Create a get computer choice function 
 // Inside get computer choice function generate a random number from 0 to 2 (both inclusive)
 // Return a string(rock, paper, scissors) corresponding to the number 
-let choices = ["rock", "paper", "scissors"];
 function getComputerChoice(){
     let randomChoice = Math.floor(Math.random()*3);
-    let compChoice = choices[randomChoice];
+    let compChoice = CHOICES[randomChoice];
     return compChoice;
 }
 
@@ -22,3 +23,9 @@ function getHumanChoice(){
         alert("!! Enter a valid choice. !!");
     }
 }
+
+
+// Initializing player scores variable with a value 0
+
+let humanScore = 0;
+let computerScore = 0;
