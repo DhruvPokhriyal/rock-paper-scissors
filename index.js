@@ -8,3 +8,17 @@ function getComputerChoice(){
     let compChoice = choices[randomChoice];
     return compChoice;
 }
+
+// Create a function that returns human Choice
+// Take input from user using prompt
+// Check whether the input is correct and return input if it a valid input 
+// If it's an invalid input show an alert to user containing message that it's invalid input
+
+function getHumanChoice(){
+    let humChoice = prompt("Enter your choice(rock/paper/scissors): ");
+    if (humChoice == "rock" || humChoice == "paper" || humChoice == "scissors"){
+        return humChoice;
+    } else {
+        alert("!! Enter a valid choice. !!");
+    }
+}
