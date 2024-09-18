@@ -12,17 +12,6 @@ function getComputerChoice() {
   return compChoice;
 }
 
-// function getHumanChoice() {
-//   let humChoice = prompt(
-//     "Enter your choice(rock/paper/scissors): "
-//   ).toLowerCase();
-//   if (humChoice == "rock" || humChoice == "paper" || humChoice == "scissors") {
-//     return humChoice;
-//   } else {
-//     alert("!! Enter a valid choice. !!");
-//   }
-// }
-
 function playRound(humanChoice, computerChoice) {
   humanWin = false;
   if (humanChoice == "rock" && computerChoice == "scissors") {
@@ -68,9 +57,5 @@ function playerChoice(e) {
       break;
   }
 }
-// const rockButton = document.createElement("button");
-// const paperButton = document.createElement("button");
-// const scissorsButton = document.createElement("button");
 
-// Refactor the code and take the function out of event listener so that you can use it to remove it as well
 document.addEventListener("keydown", playerChoice);
