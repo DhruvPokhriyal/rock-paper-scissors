@@ -45,19 +45,17 @@ function playRound(humanChoice, computerChoice) {
     computerScore++;
   }
   scorecard.textContent = `Player Score ${humanScore}\nComputer score ${computerScore}`;
-  if (humanScore == 5) {
+  if (humanScore >= 5) {
     scorecard.textContent = "Player Wins";
-  } else if (computerScore == 5) {
+    document.removeEventListener("keydown", playerChoice);
+  } else if (computerScore >= 5) {
     scorecard.textContent = "Computer Wins";
+    document.removeEventListener("keydown", playerChoice);
   }
   return;
 }
 
-// const rockButton = document.createElement("button");
-// const paperButton = document.createElement("button");
-// const scissorsButton = document.createElement("button");
-
-document.addEventListener("keydown", (e) => {
+function playerChoice(e) {
   switch (e.key) {
     case "p":
       playRound("paper", getComputerChoice());
@@ -69,4 +67,10 @@ document.addEventListener("keydown", (e) => {
       playRound("scissors", getComputerChoice());
       break;
   }
-});
+}
+// const rockButton = document.createElement("button");
+// const paperButton = document.createElement("button");
+// const scissorsButton = document.createElement("button");
+
+// Refactor the code and take the function out of event listener so that you can use it to remove it as well
+document.addEventListener("keydown", playerChoice);
