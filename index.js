@@ -2,9 +2,11 @@ let CHOICES = ["rock", "paper", "scissors"];
 let humanScore = 0;
 let computerScore = 0;
 const scorecard = document.createElement("div");
+const outcomeMessage = document.createElement("div");
 const body = document.querySelector("body");
+body.appendChild(outcomeMessage);
 body.appendChild(scorecard);
-scorecard.textContent = `Player Score ${humanScore}\nComputer score ${computerScore}`;
+scorecard.textContent = `Player Score ${humanScore} : Computer score ${computerScore}`;
 
 function getComputerChoice() {
   let randomChoice = Math.floor(Math.random() * 3);
@@ -14,26 +16,28 @@ function getComputerChoice() {
 
 function playRound(humanChoice, computerChoice) {
   humanWin = false;
+  displayMessage = "";
   if (humanChoice == "rock" && computerChoice == "scissors") {
-    console.log("You Win, Rock beats scissors.");
+    displayMessage = "You Win, Rock beats scissors.";
     humanWin = true;
   } else if (humanChoice == "scissors" && computerChoice == "rock") {
-    console.log("You Lose, Rock beats scissors");
+    displayMessage = "You Lose, Rock beats scissors";
   } else if (humanChoice == computerChoice) {
-    console.log("It's a draw");
+    displayMessage = "It's a draw";
     return;
   } else if (CHOICES.indexOf(humanChoice) < CHOICES.indexOf(computerChoice)) {
-    console.log(`You Lose, ${computerChoice} beats ${humanChoice}`);
+    displayMessage = `You Lose, ${computerChoice} beats ${humanChoice}`;
   } else {
-    console.log(`You Win, ${humanChoice} beats ${computerChoice}`);
+    displayMessage = `You Win, ${humanChoice} beats ${computerChoice}`;
     humanWin = true;
   }
+  outcomeMessage.textContent = displayMessage;
   if (humanWin) {
     humanScore++;
   } else {
     computerScore++;
   }
-  scorecard.textContent = `Player Score ${humanScore}\nComputer score ${computerScore}`;
+  scorecard.textContent = `Player Score ${humanScore} : Computer score ${computerScore}`;
   if (humanScore >= 5) {
     scorecard.textContent = "Player Wins";
     document.removeEventListener("keydown", playerChoice);
